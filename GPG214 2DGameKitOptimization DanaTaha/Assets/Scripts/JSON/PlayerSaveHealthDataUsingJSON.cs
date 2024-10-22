@@ -15,6 +15,7 @@ namespace Gamekit2D.DanaChanges
         #region variables
         [SerializeField] private Damageable _damageable;
 
+        private string _folderPath;
         private string _saveFilePath;
         private KeyCode _e = KeyCode.E;
         private KeyCode _l = KeyCode.L;
@@ -24,7 +25,13 @@ namespace Gamekit2D.DanaChanges
 
         private void Start()
         {
-            _saveFilePath = Path.Combine(Application.persistentDataPath, "PlayerHealthData.json");
+            _folderPath = Path.Combine(Application.persistentDataPath, "HealthData");
+            _saveFilePath = Path.Combine(_folderPath, "PlayerHealthData.json");
+            if (!Directory.Exists(_folderPath))
+            {
+                Directory.CreateDirectory(_folderPath);
+                Debug.Log("Created folder at: " + _folderPath);
+            }
         }
 
         private void Update()
@@ -69,8 +76,12 @@ namespace Gamekit2D.DanaChanges
                 }
                 catch
                 {
-                    Debug.LogError("Couldn't save health data.");
+                    Debug.Log("Couldn't save health data.");
                 }
+            }
+            else
+            {
+                Debug.Log("You forgot to refernce Damageable script in the blanks!");
             }
         }
 
@@ -83,24 +94,28 @@ namespace Gamekit2D.DanaChanges
         {
             if (_damageable != null)
             {
-                try
+                if (File.Exists(_saveFilePath))
                 {
-                    if (File.Exists(_saveFilePath))
+                    try
                     {
                         string _json = File.ReadAllText(_saveFilePath);
                         PlayerHealthData _healthData = JsonUtility.FromJson<PlayerHealthData>(_json);
                         _damageable.SetHealth(_healthData.currentHealth);
                         Debug.Log("Successfully loaded health data from " + _saveFilePath);
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        Debug.Log("The requested health data file does not exist at " + _saveFilePath);
+                        Debug.Log("Couldn't load the data: " + ex.Message);
                     }
                 }
-                catch
+                else
                 {
-                    Debug.LogError("Couldn't load the data.");
+                    Debug.Log("File not found.. File path: " + _saveFilePath);
                 }
+            }
+            else
+            {
+                Debug.Log("You forgot to refernce Damageable script in the blanks!");
             }
         }
         #endregion
