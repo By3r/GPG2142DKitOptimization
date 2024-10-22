@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.Experimental.Rendering;
 
 
-// Can be optimised
 
 namespace Gamekit2D
 {

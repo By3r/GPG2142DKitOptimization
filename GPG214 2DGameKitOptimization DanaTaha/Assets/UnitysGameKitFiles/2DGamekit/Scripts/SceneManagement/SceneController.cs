@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// Can be further optimised.
 
 namespace Gamekit2D
 {
@@ -145,7 +144,7 @@ namespace Gamekit2D
         {
             if (entrance == null)
             {
-                Debug.LogWarning("Entering Transform's location has not been set.");
+                Debug.LogWarning("Entering Transform'_e location has not been set.");
                 return;
             }
             Transform entranceLocation = entrance.transform;

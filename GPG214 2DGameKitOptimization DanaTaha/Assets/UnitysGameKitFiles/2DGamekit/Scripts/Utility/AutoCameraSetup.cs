@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
-// Will try to optimize
 
 namespace Gamekit2D
 {

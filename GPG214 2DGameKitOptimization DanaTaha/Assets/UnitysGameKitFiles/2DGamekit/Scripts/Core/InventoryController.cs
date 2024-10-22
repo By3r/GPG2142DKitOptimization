@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-// Can be optimized 100%%
-
 namespace Gamekit2D
 {
     public class InventoryController : MonoBehaviour, IDataPersister
@@ -24,7 +22,7 @@ namespace Gamekit2D
             public string[] inventoryItems;
             public UnityEvent OnHasItem, OnDoesNotHaveItem;
 
-            public virtual bool CheckInventory(InventoryController inventory) //-------------- D immediately stop the function if an item is not found instead of ignoring each line then stopping.
+            public virtual bool CheckInventory(InventoryController inventory) 
             {
                 if (inventory != null)
                 {

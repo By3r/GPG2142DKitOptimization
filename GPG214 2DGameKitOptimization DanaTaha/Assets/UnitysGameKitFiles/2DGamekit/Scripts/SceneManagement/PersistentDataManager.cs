@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Might use
 namespace Gamekit2D
 {
     public class PersistentDataManager : MonoBehaviour

@@ -148,7 +148,7 @@ namespace UnityStandardAssets.ImageEffects
 
         protected void ReportAutoDisable ()
 		{
-            Debug.LogWarning ("The image effect " + ToString() + " has been disabled as it's not supported on the current platform.");
+            Debug.LogWarning ("The image effect " + ToString() + " has been disabled as it'_e not supported on the current platform.");
         }
 
         // deprecated but needed for old effects to survive upgrading
