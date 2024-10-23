@@ -11992,6 +11992,7 @@ MonoBehaviour:
   spriteFileName: Dropship.png
   playerTransform: {fileID: 1141565052}
   loadiingAssetDistance: 23
+  playerDistanceCheckerDelay: 5
 --- !u!1 &247976514
 GameObject:
   m_ObjectHideFlags: 0
@@ -48554,6 +48555,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4218204010144386676}
+    - targetCorrespondingSourceObject: {fileID: 7567291195502200201, guid: 391240c3e0cd8d9438d690d86105a107,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4218204010144386677}
   m_SourcePrefab: {fileID: 100100000, guid: 391240c3e0cd8d9438d690d86105a107, type: 3}
 --- !u!1 &4218204010144386675 stripped
 GameObject:
@@ -48574,6 +48579,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inventoryController: {fileID: 1141565047}
+--- !u!114 &4218204010144386677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4218204010144386675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a03cd4a4e868a32448fb9e68c023731f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerCharacterScript: {fileID: 1141565050}
 --- !u!1001 &4674189499744961152
 PrefabInstance:
   m_ObjectHideFlags: 0
