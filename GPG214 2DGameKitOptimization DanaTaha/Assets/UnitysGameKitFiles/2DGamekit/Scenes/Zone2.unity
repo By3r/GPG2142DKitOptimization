@@ -29534,6 +29534,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1839317058}
   - component: {fileID: 1839317057}
+  - component: {fileID: 1839317059}
   m_Layer: 0
   m_Name: DanasScripts
   m_TagString: Untagged
@@ -29569,6 +29570,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1839317059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839317056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cfc5f1bc9461de489993150a1e5743b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inventoryController: {fileID: 289758615}
 --- !u!1 &1851805445
 GameObject:
   m_ObjectHideFlags: 0
