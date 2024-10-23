@@ -11896,6 +11896,7 @@ GameObject:
   m_Component:
   - component: {fileID: 228570890}
   - component: {fileID: 228570889}
+  - component: {fileID: 228570892}
   m_Layer: 15
   m_Name: Dropship
   m_TagString: Untagged
@@ -11954,7 +11955,7 @@ SpriteRenderer:
   m_Size: {x: 10.24, y: 6.61}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &228570890
@@ -11976,6 +11977,21 @@ Transform:
   - {fileID: 1764303544}
   m_Father: {fileID: 1526326366}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &228570892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228570888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a2dc1e7c1da26b4ab0eab05acd55586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteFileName: Dropship.png
+  playerTransform: {fileID: 1141565052}
+  loadiingAssetDistance: 23
 --- !u!1 &247976514
 GameObject:
   m_ObjectHideFlags: 0
@@ -29589,6 +29605,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49de84fa3d321d245bc900e599de015f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1141565052 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4212235226361802, guid: 73360cdb4e1e7ed4897690f9d57fd0eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1141565044}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1160148792
 GameObject:
   m_ObjectHideFlags: 0
