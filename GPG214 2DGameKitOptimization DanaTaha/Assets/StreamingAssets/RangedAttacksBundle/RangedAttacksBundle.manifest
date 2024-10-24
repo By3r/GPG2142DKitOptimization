@@ -1,0 +1,11 @@
+ManifestFileVersion: 0
+UnityVersion: 2023.2.7f1
+CRC: 1603936233
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: ellenrangedattacks
+      Dependencies: {}
+    Info_1:
+      Name: obstaclewall
+      Dependencies: {}

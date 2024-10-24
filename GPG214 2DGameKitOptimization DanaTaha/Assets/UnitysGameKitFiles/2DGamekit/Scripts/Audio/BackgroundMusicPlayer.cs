@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.Audio;
 
 
-// Can be further optimised.
 
 namespace Gamekit2D
 {
