@@ -14,6 +14,7 @@ namespace Gamekit2D.DanaChanges
         [SerializeField] private Transform playerTransform;
         [SerializeField] private float loadiingAssetDistance = 23f;
         [SerializeField] private float playerDistanceCheckerDelay = 5f;
+
         private string _spriteFilePath;
         private SpriteRenderer _spriteRenderer;
         private Sprite _loadedSprite;

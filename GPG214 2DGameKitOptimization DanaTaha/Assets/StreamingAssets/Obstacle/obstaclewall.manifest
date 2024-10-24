@@ -1,0 +1,71 @@
+ManifestFileVersion: 0
+UnityVersion: 2023.2.7f1
+CRC: 351834867
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e01f77f589e6c202df95bae94e97be3e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 97cee851705c318633d28d5bf2284e94
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 3433d1da32227e4263f1de90ad436dad
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 50
+  Script: {instanceID: 0}
+- Class: 60
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: c4d9699bfa3f2d341a0e36423504e110, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 960138f0450083543ad1d17e1352019d, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 241
+  Script: {instanceID: 0}
+- Class: 243
+  Script: {instanceID: 0}
+- Class: 245
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Assembly-CSharp
+  ClassName: Gamekit2D.Damageable/DamageEvent
+- AssemblyName: Assembly-CSharp
+  ClassName: Gamekit2D.Damageable/HealEvent
+- AssemblyName: Assembly-CSharp
+  ClassName: Gamekit2D.Damageable/HealthEvent
+- AssemblyName: Assembly-CSharp
+  ClassName: Gamekit2D.DataSettings
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.ArgumentCache
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentListenerMode
+Assets:
+- Assets/UnitysGameKitFiles/2DGamekit/Prefabs/Interactables/DestructableColumn.prefab
+Dependencies: []

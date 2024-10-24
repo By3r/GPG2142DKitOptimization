@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3001653834531206235}
   - component: {fileID: 1980511582769519585}
+  - component: {fileID: 4236393874085246445}
+  - component: {fileID: 6274153251804724000}
   m_Layer: 0
   m_Name: DanasAddedScripts
   m_TagString: Untagged
@@ -44,60 +46,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5615bf40567f3de4bb016c3838855880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 5
-  invulnerableAfterDamage: 1
-  invulnerabilityDuration: 3
-  disableOnDeath: 0
-  centreOffset: {x: 0, y: 1}
-  OnHealthSet:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Gamekit2D.HealthUI, Assembly-CSharp
-        m_MethodName: ChangeHitPointUI
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnTakeDamage:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114854669915511232, guid: 73360cdb4e1e7ed4897690f9d57fd0eb,
-          type: 3}
-        m_TargetAssemblyTypeName: Gamekit2D.PlayerCharacter, Assembly-CSharp
-        m_MethodName: OnHurt
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnDie:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Gamekit2D.PlayerCharacter, Assembly-CSharp
-        m_MethodName: OnDie
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnGainHealth:
-    m_PersistentCalls:
-      m_Calls: []
-  dataSettings:
-    dataTag: 3cabab62-2925-49ad-b556-0ea3f2902ad3
-    persistenceType: 3
+  _damageable: {fileID: 0}
+--- !u!114 &4236393874085246445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7567291195502200201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cfc5f1bc9461de489993150a1e5743b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inventoryController: {fileID: 0}
+--- !u!114 &6274153251804724000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7567291195502200201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a03cd4a4e868a32448fb9e68c023731f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerCharacterScript: {fileID: 0}
