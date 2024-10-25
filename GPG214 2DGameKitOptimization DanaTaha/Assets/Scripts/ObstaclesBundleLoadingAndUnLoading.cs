@@ -12,16 +12,16 @@ namespace Gamekit2D.DanaChanges
         public string obstacleName = "DestructableColumn";
         public string folderName = "Obstacle";
         public Transform player;
-        public Transform mainColumnWallSpawnPoint;
-        public Transform[] columnWallSpawnPoints;
+        public Transform mainAssetSpawnPoint;
+        public Transform[] assetSpawnPoints;
         public float loadingDistance = 10f;
         public float unloadingDistance = 13f;
         public float delay = 1f;
 
         private AssetBundle _assetBundle;
-        private List<GameObject> _wallPool = new List<GameObject>();
-        private GameObject _wallPrefab;
-        private bool _areWallsLoaded = false;
+        private List<GameObject> _assetPool = new List<GameObject>();
+        private GameObject _assetPrefab;
+        private bool _areAssetsLoaded = false;
         private bool _isLoadingOrUnloading = false;
         #endregion
 
@@ -40,17 +40,17 @@ namespace Gamekit2D.DanaChanges
 
         private void Update()
         {
-            float _distanceToPlayer = Vector3.Distance(mainColumnWallSpawnPoint.position, player.position);
+            float _distanceToPlayer = Vector3.Distance(mainAssetSpawnPoint.position, player.position);
 
             if (!_isLoadingOrUnloading)
             {
-                if (!_areWallsLoaded && _distanceToPlayer <= loadingDistance)
+                if (!_areAssetsLoaded && _distanceToPlayer <= loadingDistance)
                 {
-                    StartCoroutine(LoadAllWalls());
+                    StartCoroutine(LoadAllAssets());
                 }
-                else if (_areWallsLoaded && _distanceToPlayer >= unloadingDistance)
+                else if (_areAssetsLoaded && _distanceToPlayer >= unloadingDistance)
                 {
-                    StartCoroutine(UnloadAllWalls());
+                    StartCoroutine(UnloadAllAssets());
                 }
             }
         }
@@ -59,7 +59,7 @@ namespace Gamekit2D.DanaChanges
         /// <summary>
         /// Loads all wall prefabs from the assetbundle and creates them at the set spawn points.
         /// </summary>
-        private IEnumerator LoadAllWalls()
+        private IEnumerator LoadAllAssets()
         {
             _isLoadingOrUnloading = true;
 
@@ -101,13 +101,13 @@ namespace Gamekit2D.DanaChanges
                 }
             }
 
-            if (_wallPrefab == null)
+            if (_assetPrefab == null)
             {
                 AssetBundleRequest _prefabRequest = _assetBundle.LoadAssetAsync<GameObject>(obstacleName);
                 yield return _prefabRequest;
 
-                _wallPrefab = _prefabRequest.asset as GameObject;
-                if (_wallPrefab == null)
+                _assetPrefab = _prefabRequest.asset as GameObject;
+                if (_assetPrefab == null)
                 {
                     Debug.Log("Failed to load _wall prefab: " + obstacleName);
                     _isLoadingOrUnloading = false;
@@ -115,13 +115,13 @@ namespace Gamekit2D.DanaChanges
                 }
             }
 
-            for (int i = 0; i < columnWallSpawnPoints.Length; i++)
+            for (int i = 0; i < assetSpawnPoints.Length; i++)
             {
-                GameObject _wall = GetWallFromPool(columnWallSpawnPoints[i].position);
+                GameObject _wall = GetWallFromPool(assetSpawnPoints[i].position);
                 _wall.SetActive(true);
             }
 
-            _areWallsLoaded = true;
+            _areAssetsLoaded = true;
             Debug.Log("All walls loaded and activated.");
 
             yield return new WaitForSeconds(delay);
@@ -131,16 +131,16 @@ namespace Gamekit2D.DanaChanges
         /// <summary>
         /// Unloads all wall prefabs by deactivating them and returning them to the pool.
         /// </summary>
-        private IEnumerator UnloadAllWalls()
+        private IEnumerator UnloadAllAssets()
         {
             _isLoadingOrUnloading = true;
 
-            for (int i = 0; i < _wallPool.Count; i++)
+            for (int i = 0; i < _assetPool.Count; i++)
             {
-                _wallPool[i].SetActive(false);
+                _assetPool[i].SetActive(false);
             }
 
-            _areWallsLoaded = false;
+            _areAssetsLoaded = false;
 
             if (_assetBundle != null)
             {
@@ -160,7 +160,7 @@ namespace Gamekit2D.DanaChanges
         /// </summary>
         private GameObject GetWallFromPool(Vector3 position)
         {
-            foreach (GameObject wall in _wallPool)
+            foreach (GameObject wall in _assetPool)
             {
                 if (!wall.activeInHierarchy)
                 {
@@ -169,8 +169,8 @@ namespace Gamekit2D.DanaChanges
                 }
             }
 
-            GameObject _newWall = Instantiate(_wallPrefab, position, Quaternion.identity);
-            _wallPool.Add(_newWall);
+            GameObject _newWall = Instantiate(_assetPrefab, position, Quaternion.identity);
+            _assetPool.Add(_newWall);
             return _newWall;
         }
         #endregion
