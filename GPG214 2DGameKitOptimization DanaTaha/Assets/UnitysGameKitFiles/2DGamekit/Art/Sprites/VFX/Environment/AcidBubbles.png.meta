@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: 86d5ee14dfb5a6342ad6aae1133f4561
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107098
+  packageName: 2D Game Kit
+  packageVersion: 3.0
+  assetPath: Assets/2DGamekit/Art/Sprites/VFX/Environment/AcidBubbles.png
+  uploadId: 680389
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -39,7 +46,7 @@ TextureImporter:
       213: 21300022
     second: AcidBubbles_11
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -56,11 +63,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -99,19 +107,22 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -122,8 +133,9 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
@@ -134,6 +146,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
@@ -402,28 +415,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      AcidBubbles_11: 21300022
-      AcidBubbles_10: 21300020
-      AcidBubbles_7: 21300014
-      AcidBubbles_9: 21300018
       AcidBubbles_0: 21300000
+      AcidBubbles_1: 21300002
+      AcidBubbles_10: 21300020
+      AcidBubbles_11: 21300022
+      AcidBubbles_2: 21300004
+      AcidBubbles_3: 21300006
       AcidBubbles_4: 21300008
       AcidBubbles_5: 21300010
-      AcidBubbles_1: 21300002
-      AcidBubbles_3: 21300006
-      AcidBubbles_8: 21300016
       AcidBubbles_6: 21300012
-      AcidBubbles_2: 21300004
-  spritePackingTag: 
+      AcidBubbles_7: 21300014
+      AcidBubbles_8: 21300016
+      AcidBubbles_9: 21300018
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 107098
-  packageName: 2D Game Kit
-  packageVersion: 3.0
-  assetPath: Assets/2DGamekit/Art/Sprites/VFX/Environment/AcidBubbles.png
-  uploadId: 680389

@@ -20490,8 +20490,8 @@ MonoBehaviour:
   obstacleName: DestructableColumn
   folderName: Obstacle
   player: {fileID: 1604449751}
-  mainColumnWallSpawnPoint: {fileID: 435894951}
-  columnWallSpawnPoints:
+  mainAssetSpawnPoint: {fileID: 435894951}
+  assetSpawnPoints:
   - {fileID: 435894951}
   loadingDistance: 10
   unloadingDistance: 13
