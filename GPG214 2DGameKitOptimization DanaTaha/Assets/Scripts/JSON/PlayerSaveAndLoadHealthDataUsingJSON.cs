@@ -32,7 +32,6 @@ namespace Gamekit2D.DanaChanges
             if (!Directory.Exists(_folderPath))
             {
                 Directory.CreateDirectory(_folderPath);
-                Debug.Log("Created folder at: " + _folderPath);
             }
         }
 
@@ -74,16 +73,10 @@ namespace Gamekit2D.DanaChanges
                     };
                     string _json = JsonUtility.ToJson(_healthData, true);
                     File.WriteAllText(_saveFilePath, _json);
-                    Debug.Log("Saved health data into: " + _saveFilePath);
                 }
                 catch
                 {
-                    Debug.Log("Couldn't save health data.");
                 }
-            }
-            else
-            {
-                Debug.Log("You forgot to refernce Damageable script in the blanks!");
             }
         }
 
@@ -103,21 +96,11 @@ namespace Gamekit2D.DanaChanges
                         string _json = File.ReadAllText(_saveFilePath);
                         PlayerHealthData _healthData = JsonUtility.FromJson<PlayerHealthData>(_json);
                         _damageable.SetHealth(_healthData.currentHealth);
-                        Debug.Log("Successfully loaded health data from " + _saveFilePath);
                     }
-                    catch (Exception ex)
+                    catch
                     {
-                        Debug.Log("Couldn't load the data: " + ex.Message);
                     }
                 }
-                else
-                {
-                    Debug.Log("File not found.. File path: " + _saveFilePath);
-                }
-            }
-            else
-            {
-                Debug.Log("You forgot to refernce Damageable script in the blanks!");
             }
         }
         #endregion

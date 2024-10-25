@@ -33,7 +33,6 @@ namespace Gamekit2D.DanaChanges
             if (!Directory.Exists(_folderPath))
             {
                 Directory.CreateDirectory(_folderPath);
-                Debug.Log("Created a KeyData folder inn " + _folderPath);
             }
         }
 
@@ -75,7 +74,6 @@ namespace Gamekit2D.DanaChanges
 
                     if (KeyUI.Instance == null)
                     {
-                        Debug.LogError("KeyUI instance is null!");
                         return;
                     }
 
@@ -96,17 +94,10 @@ namespace Gamekit2D.DanaChanges
                     {
                         _xmlSerializer.Serialize(_writer, keyData);
                     }
-
-                    Debug.Log("Key data saved in " + _saveFilePath);
                 }
                 catch
                 {
-                    Debug.LogError("Can't save key data.");
                 }
-            }
-            else
-            {
-                Debug.LogError("InventoryController is not assigned! - Save Key Data Function.");
             }
         }
 
@@ -138,22 +129,11 @@ namespace Gamekit2D.DanaChanges
                                 }
                             }
                         }
-
-                        Debug.Log("Key data loaded from: " + _saveFilePath);
                     }
                     catch
                     {
-                        Debug.Log("Couldn't load key data.");
                     }
                 }
-                else
-                {
-                    Debug.Log("No key data file found in " + _saveFilePath);
-                }
-            }
-            else
-            {
-                Debug.Log("InventoryController is not assigned! - Load Key Data Function.");
             }
         }
         #endregion

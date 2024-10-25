@@ -20490,12 +20490,12 @@ MonoBehaviour:
   obstacleName: DestructableColumn
   folderName: Obstacle
   player: {fileID: 1604449751}
-  targetSpawnPoint: {fileID: 435894951}
-  wallSpawnPoints:
+  mainColumnWallSpawnPoint: {fileID: 435894951}
+  columnWallSpawnPoints:
   - {fileID: 435894951}
-  loadDistance: 10
-  unloadDistance: 13
-  loadUnloadDelay: 1
+  loadingDistance: 10
+  unloadingDistance: 13
+  delay: 1
 --- !u!1 &1065421559
 GameObject:
   m_ObjectHideFlags: 0
@@ -37376,6 +37376,6 @@ SceneRoots:
   - {fileID: 1475300402}
   - {fileID: 1382588016}
   - {fileID: 1228668198}
-  - {fileID: 1051268148}
   - {fileID: 435894951}
   - {fileID: 1907302478}
+  - {fileID: 1051268148}

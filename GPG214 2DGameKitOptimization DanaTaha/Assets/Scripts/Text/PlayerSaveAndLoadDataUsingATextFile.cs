@@ -16,7 +16,7 @@ public struct PlayerGeneralData
 }
 #endregion
 
-public class PlayerSaveAndLoadHealthDataUsingATextFile : MonoBehaviour
+public class PlayerSaveAndLoadDataUsingATextFile : MonoBehaviour
 {
     #region Variables
     [SerializeField] private PlayerCharacter _playerCharacterScript;
