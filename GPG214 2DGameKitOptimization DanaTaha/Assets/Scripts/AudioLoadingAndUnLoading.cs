@@ -38,11 +38,9 @@ public class AudioLoadingAndUnLoading : MonoBehaviour
 
         if (_audioAssetBundle == null)
         {
-            Debug.LogError("failed to load AssetBundle from: " + _bundlePath);
             yield break;
         }
 
-        Debug.Log("AssetBundle is loaded from file: " + _bundlePath);
         foreach (string _clipName in audioClipNames)
         {
             AssetBundleRequest _audioRequest = _audioAssetBundle.LoadAssetAsync<AudioClip>(_clipName);
@@ -52,21 +50,15 @@ public class AudioLoadingAndUnLoading : MonoBehaviour
 
             if (_audioClip != null)
             {
-                Debug.Log("Loaded clip: " + _clipName);
 
                 _audioSource.clip = _audioClip;
                 _audioSource.Play();
 
                 yield return new WaitForSeconds(_audioClip.length);
             }
-            else
-            {
-                Debug.Log("Failed to load clip: " + _clipName);
-            }
         }
 
         _audioAssetBundle.Unload(true);
-        Debug.Log("AssetBundle unloaded.");
     }
 
     #endregion

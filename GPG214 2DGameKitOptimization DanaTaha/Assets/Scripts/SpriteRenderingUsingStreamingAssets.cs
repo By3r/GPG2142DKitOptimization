@@ -69,16 +69,7 @@ namespace Gamekit2D.DanaChanges
                     _loadedSprite = CreateSpriteFromTexture(texture);
                     _spriteRenderer.sprite = _loadedSprite;
                     _spriteLoaded = true;
-                    Debug.Log("Successfully loaded the sprite.");
                 }
-                else
-                {
-                    Debug.Log("texture didn;t load from the file.");
-                }
-            }
-            else
-            {
-                Debug.Log("file isn't in " + _spriteFilePath);
             }
         }
 
@@ -96,7 +87,6 @@ namespace Gamekit2D.DanaChanges
                     _loadedSprite = null;
                 }
                 _spriteLoaded = false;
-                Debug.Log("Sprite unloaded.");
             }
         }
 

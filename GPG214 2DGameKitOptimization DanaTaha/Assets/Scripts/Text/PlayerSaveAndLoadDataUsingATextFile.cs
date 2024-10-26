@@ -121,21 +121,18 @@ public class PlayerSaveAndLoadDataUsingATextFile : MonoBehaviour
         if (Input.GetKeyDown(_gravityIncreaserKey) && !Input.GetKey(_minusKey))
         {
             _playerCharacterScript.gravity += 0.2f;
-            Debug.Log("Increased Gravity, it is now " + _playerCharacterScript.gravity);
         }
 
         // Increases bullet speed.
         if (Input.GetKeyDown(_bulletSpeedIncreaserKey) && !Input.GetKey(_minusKey))
         {
             _playerCharacterScript.bulletSpeed += 0.2f;
-            Debug.Log("Increased Bullet Speed, it is now " + _playerCharacterScript.bulletSpeed);
         }
 
         // Increases jump speed.
         if (Input.GetKeyDown(_jumpSpeedIncreaserKey) && !Input.GetKey(_minusKey))
         {
             _playerCharacterScript.jumpSpeed += 0.5f;
-            Debug.Log("Increased Jump Speed, it is now " + _playerCharacterScript.jumpSpeed);
         }
     }
 
@@ -148,21 +145,18 @@ public class PlayerSaveAndLoadDataUsingATextFile : MonoBehaviour
         if (Input.GetKey(_minusKey) && Input.GetKeyDown(_gravityKey))
         {
             _playerCharacterScript.gravity -= 0.2f;
-            Debug.Log("Decreased Gravity, it is now " + _playerCharacterScript.gravity);
         }
 
         // Decreases bullet speed.
         if (Input.GetKey(_minusKey) && Input.GetKeyDown(_bulletSpeedKey))
         {
             _playerCharacterScript.bulletSpeed -= 0.2f;
-            Debug.Log("Decreased Bullet Speed, it is now " + _playerCharacterScript.bulletSpeed);
         }
 
         // Decreases jump speed.
         if (Input.GetKey(_minusKey) && Input.GetKeyDown(_jumpSpeedKey))
         {
             _playerCharacterScript.jumpSpeed -= 0.5f;
-            Debug.Log("Decreased Jump Speed, it is now " + _playerCharacterScript.jumpSpeed);
         }
     }
     #endregion

@@ -31,7 +31,6 @@ namespace Gamekit2D.DanaChanges
             {
                 if (loadedBundle.name == assetBundleName)
                 {
-                    Debug.Log("Unloading previously loaded AssetBundle: " + assetBundleName);
                     loadedBundle.Unload(false);
                     break;
                 }
@@ -87,14 +86,12 @@ namespace Gamekit2D.DanaChanges
 
                         if (_assetBundle == null)
                         {
-                            Debug.Log("Failed to load AssetBundle!");
                             _isLoadingOrUnloading = false;
                             yield break;
                         }
                     }
                     else
                     {
-                        Debug.Log("AssetBundle not found at: " + _bundlePath);
                         _isLoadingOrUnloading = false;
                         yield break;
                     }
@@ -109,7 +106,6 @@ namespace Gamekit2D.DanaChanges
                 _assetPrefab = _prefabRequest.asset as GameObject;
                 if (_assetPrefab == null)
                 {
-                    Debug.Log("Failed to load _wall prefab: " + obstacleName);
                     _isLoadingOrUnloading = false;
                     yield break;
                 }
@@ -122,7 +118,6 @@ namespace Gamekit2D.DanaChanges
             }
 
             _areAssetsLoaded = true;
-            Debug.Log("All walls loaded and activated.");
 
             yield return new WaitForSeconds(delay);
             _isLoadingOrUnloading = false;
@@ -145,11 +140,9 @@ namespace Gamekit2D.DanaChanges
             if (_assetBundle != null)
             {
                 _assetBundle.Unload(false);
-                Debug.Log("AssetBundle unloaded after all walls were unloaded.");
                 _assetBundle = null;
             }
 
-            Debug.Log("All walls unloaded and returned to the pool.");
 
             yield return new WaitForSeconds(delay);
             _isLoadingOrUnloading = false;
