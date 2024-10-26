@@ -27,7 +27,7 @@ namespace Gamekit2D
 
         public float[] waitTimes = new float[1];
 
-        public Vector3[] worldNode {  get { return m_WorldNode; } }
+        public Vector3[] worldNode { get { return m_WorldNode; } }
 
         protected Vector3[] m_WorldNode;
 
@@ -43,10 +43,12 @@ namespace Gamekit2D
         protected bool m_Started = false;
         protected bool m_VeryFirstStart = false;
 
+        public float platformToPlayerDistance = 15f;
         public Vector2 Velocity
         {
             get { return m_Velocity; }
         }
+        private Transform _playerTransform;
 
         private void Reset()
         {
@@ -58,20 +60,21 @@ namespace Gamekit2D
             m_Rigidbody2D.isKinematic = true;
 
             if (platformCatcher == null)
-                platformCatcher = GetComponent<PlatformCatcher> ();
+                platformCatcher = GetComponent<PlatformCatcher>();
         }
 
         private void Start()
         {
+            _playerTransform = GameObject.FindWithTag("Player").transform;
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
             m_Rigidbody2D.isKinematic = true;
 
             if (platformCatcher == null)
                 platformCatcher = GetComponent<PlatformCatcher>();
-      
+
             //Allow to make platform only move when they became visible
             Renderer[] renderers = GetComponentsInChildren<Renderer>();
-            for(int i = 0; i < renderers.Length; ++i)
+            for (int i = 0; i < renderers.Length; ++i)
             {
                 var b = renderers[i].gameObject.AddComponent<VisibleBubbleUp>();
                 b.objectBecameVisible = BecameVisible;
@@ -107,14 +110,19 @@ namespace Gamekit2D
 
         private void FixedUpdate()
         {
-            if (!m_Started)
+            if (_playerTransform != null && Vector3.Distance(transform.position, _playerTransform.position) > platformToPlayerDistance)
+            {
+                m_Started = false;
                 return;
+            }
+
+            m_Started = true;
 
             //no need to update we have a single node in the path
             if (m_Current == m_Next)
                 return;
 
-            if(m_WaitTime > 0)
+            if (m_WaitTime > 0)
             {
                 m_WaitTime -= Time.deltaTime;
                 return;
@@ -122,19 +130,18 @@ namespace Gamekit2D
 
             float distanceToGo = speed * Time.deltaTime;
 
-            while(distanceToGo > 0)
+            while (distanceToGo > 0)
             {
-
-                Vector2 direction = m_WorldNode[m_Next] - transform.position;
+                //Use already defined positions to avoid GC
+                Vector3 currentPosition = transform.position;
+                Vector3 nextPosition = m_WorldNode[m_Next];
+                Vector2 direction = (Vector2)(nextPosition - currentPosition);
 
                 float dist = distanceToGo;
-                if(direction.sqrMagnitude < dist * dist)
-                {   //we have to go farther than our current goal point, so we set the distance to the remaining distance
-                    //then we change the current & next indexes
+                if (direction.sqrMagnitude < dist * dist)
+                {
                     dist = direction.magnitude;
-
                     m_Current = m_Next;
-
                     m_WaitTime = waitTimes[m_Current];
 
                     if (m_Dir > 0)
@@ -143,7 +150,7 @@ namespace Gamekit2D
                         if (m_Next >= m_WorldNode.Length)
                         { //we reach the end
 
-                            switch(platformType)
+                            switch (platformType)
                             {
                                 case MovingPlatformType.BACK_FORTH:
                                     m_Next = m_WorldNode.Length - 2;
@@ -162,7 +169,7 @@ namespace Gamekit2D
                     else
                     {
                         m_Next -= 1;
-                        if(m_Next < 0)
+                        if (m_Next < 0)
                         { //reached the beginning again
 
                             switch (platformType)
@@ -187,13 +194,13 @@ namespace Gamekit2D
 
                 //transform.position +=  direction.normalized * dist;
                 m_Rigidbody2D.MovePosition(m_Rigidbody2D.position + m_Velocity);
-                platformCatcher.MoveCaughtObjects (m_Velocity);
+                platformCatcher.MoveCaughtObjects(m_Velocity);
                 //We remove the distance we moved. That way if we didn't had enough distance to the next goal, we will do a new loop to finish
                 //the remaining distance we have to cover this frame toward the new goal
                 distanceToGo -= dist;
 
                 // we have some wait time set, that mean we reach a point where we have to wait. So no need to continue to move the platform, early exit.
-                if (m_WaitTime > 0.001f) 
+                if (m_WaitTime > 0.001f)
                     break;
             }
         }
