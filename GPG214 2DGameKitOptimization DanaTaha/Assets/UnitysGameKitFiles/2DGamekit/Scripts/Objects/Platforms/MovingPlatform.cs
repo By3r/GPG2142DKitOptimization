@@ -65,7 +65,7 @@ namespace Gamekit2D
 
         private void Start()
         {
-            _playerTransform = GameObject.FindWithTag("Player").transform;
+            _playerTransform = GameObject.FindWithTag("player").transform;
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
             m_Rigidbody2D.isKinematic = true;
 
